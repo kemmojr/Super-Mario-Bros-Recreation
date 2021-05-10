@@ -5,8 +5,20 @@
 </head>
 <body>
 	<!-- <button class="btn btn-success" onclick=" window.open('https://drive.google.com/file/d/17EqWj2Gc64heI_6pdSiFI6pGgeoE6na7/view','_blank')"> How to Play</button> -->
-	<canvas id = "gameCanvas" width = "43008" height = "2580">This text is displayed if your browser does not support html5. Browsers such as google chrome and firefox are a good place to go to get a html5 browser</canvas>
-    <script scr = "./Collisions.js" type = "text/javascript"></script>
+	<canvas id = "gameCanvas" width = "0" height = "0">This text is displayed if your browser does not support html5. Browsers such as google chrome and firefox are a good place to go to get a html5 browser</canvas>
+    <div>
+		<img id="player"
+       src="./mario.png"
+       width="12" height="16">
+	</div>
+	<div>
+		<img id="source"
+       src="./SuperMarioBrosMap1-1-Cropped.png"
+       width="3584" height="215">
+	</div>
+	
+	
+	<script scr = "./Collisions.js" type = "text/javascript"></script>
     <script scr = "./Movement.js" type = "text/javascript"></script>
 	<script type="text/javascript">
 		
@@ -15,23 +27,24 @@
 
 		//Player 1 variables
 
-		var player1Sprite1 = document.createElement("img");//New comment
-		player1Sprite1.src = "./player1Sprite1.png";
-		var player1Sprite2 = document.createElement("img");
-		player1Sprite2.src = "./player1Sprite2.png";
+		var player1Sprite1 = document.getElementById("player");
+		// player1Sprite1.src = "./player1Sprite1.png";
+		// var player1Sprite2 = document.createElement("img");
+		// player1Sprite2.src = "./player1Sprite2.png";
 
-		var player2Sprite1 = document.createElement("img");
-		player2Sprite1.src = "./player2Sprite1.png";
-		var player2Sprite2 = document.createElement("img");
-		player2Sprite2.src = "./player2Sprite2.png";
+		// var player2Sprite1 = document.createElement("img");
+		// player2Sprite1.src = "./player2Sprite1.png";
+		// var player2Sprite2 = document.createElement("img");
+		// player2Sprite2.src = "./player2Sprite2.png";
 		//These two lines define the variable player1Sprite as the type image and then gets the player1Sprite from the source defined and assigns it the the player1Sprite variable
-		var levelBackground1 = document.createElement("img");
+		// var levelBackground1 = document.createElement("img");
+		var levelBackground1 = document.getElementById("source");
 		levelBackground1.src = "./SuperMarioBrosMap1-1-Cropped.png"
 
 
 
 		player1 = {
-			"x" : 300 , "y" : 600, "width" : 90*0.6, "height" : 120*0.6, 
+			"x" : 100 , "y" : 0, "width" : 12, "height" : 16, 
 			"speedX" : 0, 
 			"speedY" : 0, 
 			"speedValue" : 4,
@@ -337,65 +350,66 @@
 			//This code deals with drawing to the screen
 			
 
-			context.fillStyle = 'rgb(0, 0, 0)';
-			//context.fillRect(0, 0, canvas.width, canvas.height);
+			// context.fillStyle = 'rgb(0, 0, 0)';
+			// context.fillRect(0, 0, canvas.width, canvas.height);
 			//This was code that originally used to draw the background
-			context.drawImage(levelBackground1,0,0,canvas.width,canvas.height);
+			context.drawImage(levelBackground1,0,0,3584, 215);
+			context.drawImage(player1Sprite1, player1.x, player1.y, 12, 16);
 			// context.drawImage(levelBackground1,0,0,14336,1920);
 			//This is the replacement code for drawing the background, drawing the joust background that was taken from the original game
 
 			//draw the player1 sprite
-			if (clearPlayer1 == false){
-				if (player1.moveDirectionX == "right"){
-					context.drawImage(player1Sprite1, player1.x, player1.y, player1.width, player1.height);
-				}
-				if (player1.moveDirectionX == "left"){
-					context.drawImage(player1Sprite2, player1.x, player1.y, player1.width, player1.height);
-				}
-				//This code checks what direction the player is moving and adjusts and draws their image to the screen in the direction that they are going
-			}
+			// if (clearPlayer1 == false){
+			// 	if (player1.moveDirectionX == "right"){
+			// 		context.drawImage(player1Sprite1, player1.x, player1.y, player1.width, player1.height);
+			// 	}
+			// 	if (player1.moveDirectionX == "left"){
+			// 		context.drawImage(player1Sprite2, player1.x, player1.y, player1.width, player1.height);
+			// 	}
+			// 	//This code checks what direction the player is moving and adjusts and draws their image to the screen in the direction that they are going
+			// }
 				
 			
 
 			//draw the player 2 sprite
-			if (clearPlayer2 == false){
-				if (player2.moveDirectionX == "right"){
-					context.drawImage(player2Sprite1, player2.x, player2.y, player2.width, player2.height);
-				}
-				if (player2.moveDirectionX == "left"){
-					context.drawImage(player2Sprite2, player2.x, player2.y, player2.width, player2.height);
-				}
-				//This code draws the player 2 to the screen in the same way as done with player 1
-			}
+			// if (clearPlayer2 == false){
+			// 	if (player2.moveDirectionX == "right"){
+			// 		context.drawImage(player2Sprite1, player2.x, player2.y, player2.width, player2.height);
+			// 	}
+			// 	if (player2.moveDirectionX == "left"){
+			// 		context.drawImage(player2Sprite2, player2.x, player2.y, player2.width, player2.height);
+			// 	}
+			// 	//This code draws the player 2 to the screen in the same way as done with player 1
+			// }
 
-			context.fillStyle = 'rgb(255, 255, 255)'
+			// context.fillStyle = 'rgb(255, 255, 255)'
 			//context.fillRect(rect[0].x, rect[0].y, rect[0].topWidth, rect[0].height);
 
 
-			player1.x += player1.speedX;
-			player1.y += player1.speedY;
+			// player1.x += player1.speedX;
+			// player1.y += player1.speedY;
 
 
-			player2.x += player2.speedX;
-			player2.y += player2.speedY;
+			// player2.x += player2.speedX;
+			// player2.y += player2.speedY;
 			
 			//This code changes the player 1 and 2 x and y values based off of how they are meant to be changed by the speed (direction that they are going)
 
-			context.font = "24px sans-serif"; 
-			context.fillStyle = "rgb(255, 255, 255)"; 
-			context.fillText("Player 1: " + player1.score, 300, 632);
-			context.fillText("Player 2: " + player2.score, 600, 632);
+			// context.font = "24px sans-serif"; 
+			// context.fillStyle = "rgb(255, 255, 255)"; 
+			// context.fillText("Player 1: " + player1.score, 300, 632);
+			// context.fillText("Player 2: " + player2.score, 600, 632);
 			//This code draws the player 1 and 2 scores to the screen
 			
 		}
 
 		function GameLoop()
 		{
-			Collisions.collisions();
-			//update();
-			//draw();
+			// Collisions.collisions();
+			// update();
+			draw();
 			
-			//requestAnimationFrame(GameLoop); // ask the browser to call the gameloop function again every frame, making all of the functions inside of it repeat every frame
+			// requestAnimationFrame(GameLoop); // ask the browser to call the gameloop function again every frame, making all of the functions inside of it repeat every frame
 		}
 		
 		GameLoop();
