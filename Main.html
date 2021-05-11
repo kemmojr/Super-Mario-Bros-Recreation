@@ -28,6 +28,8 @@
 		//Player 1 variables
 
 		var player1Sprite1 = document.getElementById("player");
+		// var player1Sprite1 = new Image();
+		// player1Sprite1.src = 'filepath';
 		// player1Sprite1.src = "./player1Sprite1.png";
 		// var player1Sprite2 = document.createElement("img");
 		// player1Sprite2.src = "./player1Sprite2.png";
@@ -360,12 +362,12 @@
 
 			//draw the player1 sprite
 			// if (clearPlayer1 == false){
-			// 	if (player1.moveDirectionX == "right"){
-			// 		context.drawImage(player1Sprite1, player1.x, player1.y, player1.width, player1.height);
-			// 	}
-			// 	if (player1.moveDirectionX == "left"){
-			// 		context.drawImage(player1Sprite2, player1.x, player1.y, player1.width, player1.height);
-			// 	}
+				if (player1.moveDirectionX == "right"){
+					context.drawImage(levelBackground1, player1.x, player1.y, player1.width, player1.height);
+				}
+				if (player1.moveDirectionX == "left"){
+					context.drawImage(player1Sprite2, player1.x, player1.y, player1.width, player1.height);
+				}
 			// 	//This code checks what direction the player is moving and adjusts and draws their image to the screen in the direction that they are going
 			// }
 				
@@ -395,18 +397,12 @@
 			
 			//This code changes the player 1 and 2 x and y values based off of how they are meant to be changed by the speed (direction that they are going)
 
-			// context.font = "24px sans-serif"; 
-			// context.fillStyle = "rgb(255, 255, 255)"; 
-			// context.fillText("Player 1: " + player1.score, 300, 632);
-			// context.fillText("Player 2: " + player2.score, 600, 632);
-			//This code draws the player 1 and 2 scores to the screen
-			
 		}
 
 		function GameLoop()
 		{
 			// Collisions.collisions();
-			// update();
+			update();
 			draw();
 			
 			// requestAnimationFrame(GameLoop); // ask the browser to call the gameloop function again every frame, making all of the functions inside of it repeat every frame
